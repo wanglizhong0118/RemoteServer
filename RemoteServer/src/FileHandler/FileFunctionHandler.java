@@ -22,7 +22,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
-import Authentication.AEScoding;
+import Authentication.Encryption;
 import Messages.MsgFromClient;
 import Messages.MsgToClient;
 import Server.Connector;
@@ -68,7 +68,7 @@ public class FileFunctionHandler {
                             + MsgToClient.NEWLINE + filename + MsgToClient.NEWLINE;
                     String content = new String(Files.readAllBytes(Paths.get(fileFullPath)));
                     String response = responseHeader + content;
-                    String AESresponse = AEScoding.encrypt(response, Setter.AES_KEY);
+                    String AESresponse = Encryption.encrypt(response, Setter.SECURITY_KEY);
                     byte[] responseArray = new byte[AESresponse.length()];
                     responseArray = AESresponse.getBytes(StandardCharsets.UTF_8);
                     // autoRemove.setInt(1, fileid);

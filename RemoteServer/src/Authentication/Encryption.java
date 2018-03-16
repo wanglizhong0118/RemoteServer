@@ -13,7 +13,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 
-public class AEScoding {
+public class Encryption {
 
     private static SecretKeySpec secretKey;
     private static byte[] key;

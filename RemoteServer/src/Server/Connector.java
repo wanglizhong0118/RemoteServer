@@ -12,7 +12,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
-import Authentication.AEScoding;
+import Authentication.Encryption;
 
 public class Connector {
 
@@ -20,7 +20,7 @@ public class Connector {
             NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
 
         byte[] responseArray = new byte[response.length()];
-        String aseResponse = AEScoding.encrypt(response, Setter.AES_KEY);
+        String aseResponse = Encryption.encrypt(response, Setter.SECURITY_KEY);
         responseArray = aseResponse.getBytes(StandardCharsets.UTF_8);
         outWriter.write(responseArray, 0, responseArray.length);
     }
@@ -38,7 +38,7 @@ public class Connector {
             }
         }
         String request = new String(fromClient, 0, bytesRead);
-        String deASERequest = AEScoding.decrypt(request, Setter.AES_KEY);
+        String deASERequest = Encryption.decrypt(request, Setter.SECURITY_KEY);
         return deASERequest;
     }
 
