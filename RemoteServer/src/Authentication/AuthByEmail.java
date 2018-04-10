@@ -13,7 +13,7 @@ import javax.mail.internet.MimeMessage;
 public class AuthByEmail {
 
     final private static String username = "TestServerByLiz";
-    final private static String password = "TestServer2018";
+    final private static String password = "***************";
 
     final private static String mailSender = "TestServerByLiz@gmail.com";
 
